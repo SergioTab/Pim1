@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ProdutoModel
+@{
     ViewData["Title"] = "Criar Produto";
 }
 
@@ -9,32 +10,36 @@
 
 </div>
 
-<form>
+<form asp-controller="Produto" asp-action="Criar" method="post">
 
     <div class="form-group">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" placeholder="Digite o nome do produto/alimento colhido">
+        <input type="text" asp-for="Nome"  class="form-control" placeholder="Digite o nome do produto/alimento colhido">
+           @Html.ValidationMessageFor(x => x.Nome)
     </div>
 
     <br />
 
     <div class="form-group">
         <label for="data">Data da colheita</label>
-        <input type="text" class="form-control" placeholder="Digite a data da colheita">
+        <input type="text" asp-for="Data" class="form-control" placeholder="Digite a data da colheita">
+        @Html.ValidationMessageFor(x => x.Data)
     </div>
 
     <br />
 
     <div class="form-group">
         <label for="quantidade">Quantidade</label>
-        <input type="text" class="form-control" placeholder="Digite a quantidade colhida">
+        <input type="text" asp-for="Quantidade" class="form-control" placeholder="Digite a quantidade colhida">
+        @Html.ValidationMessageFor(x => x.Quantidade)
     </div>
 
     <br />
 
     <div class="form-group">
         <label for="valor">Valor Unit.</label>
-        <input type="text" class="form-control" placeholder="Digite o valor unit&aacute;rio do produto/alimento colhido">
+        <input type="text" asp-for="Valor" class="form-control" placeholder="Digite o valor unit&aacute;rio do produto/alimento colhido">
+        @Html.ValidationMessageFor(x => x.Valor)
     </div>
 
     <br /> 

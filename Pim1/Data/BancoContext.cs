@@ -9,5 +9,8 @@ namespace Pim1.Data
         {
         }
         public DbSet<ProdutoModel> Produtos { get; set; }
+        public DbSet<UsuarioModel> Usuarios { get; set; }
+        
+
     }
 }

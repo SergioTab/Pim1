@@ -1,11 +1,17 @@
+using Microsoft.EntityFrameworkCore;
 using Pim1.Data;
+using Pim1.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddEntityFrameworkSqlServer()
-    .AddDbContext<BancoContext>();
+    .AddDbContext<BancoContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
+
+builder.Services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
+
+builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 var app = builder.Build();
 
